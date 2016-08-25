@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/routes.js"></script>
+
+
+        <script src="js/directives.js"></script>
+        <script src="js/services.js"></script>
+
+
+
+    <style type="text/css">
+      .platform-ios .manual-ios-statusbar-padding{
+        padding-top:20px;
+      }
+      .manual-remove-top-padding{
+        padding-top:0px;
+      }
+      .manual-remove-top-padding .scroll{
+        padding-top:0px !important;
+      }
+      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+        margin-left:-10px;
+        margin-right:-10px;
+      }
+      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+        border-radius:0px;
+        border-left:0px;
+        border-right: 0px;
+      }
+    </style>
+
+    <!-- Only required for Tab projects w/ pages in multiple tabs
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7" ng-controller="cpCtrl">
+  <div>
+    <div>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+    </div>
+</div>
+
+<ion-view title="RGB LED Colour Picker" id="page1">
+    <ion-content padding="true" class="has-header">
+        <h1 id="rGBLEDColourPicker-heading1" style="color:#000000;">Picker</h1>
+        <div class="list ">
+  <div class="item range range-assertive r">
+      <i class="icon  assertive">R</i>
+<!--<i class="icon ion-chevron-down assertive"></i>-->
+    <input id="myRange" ng-model="r" type="range" min="0" max="255" value="0" ng-change="changet()">
+    <i class="  assertive">{{r}}</i>
+  </div>
+              <div class="item range range-balanced g">
+    <i class="icon  balanced">G</i>
+    <input id="myRange2" ng-model="g" type="range" min="0" max="255" value="0" ng-change="changet()">
+    <i class="  balanced">{{g}}</i>
+  </div>
+              <div class="item range range-positive b">
+    <i class="icon  positive">B</i>
+    <input id="myRange3" ng-model="b" type="range" min="0" max="255" value="0" ng-change="changet()">
+    <i class=" positive">{{b}}</i>
+  </div>
+</div>
+        <div>
+        <h1 id="rGBLEDColourPicker-heading2" style="color:#000000;">Current Colour:</h1>
+        <div style="background-color: {{hexx}} ;height:15vh;">
+        </div>
+        <div class="spacer" style="height: 60px;"></div>
+        <button class="button button-stable button-block" ng-click="openModal()">
+        Show Colour Presets
+      </button>
+    </div></ion-content>
+
+</ion-view>
+
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Colour Presets</h1>
+      <button class="button button-clear button-primary" ng-click="modal.hide()">Exit</button>
+    </ion-header-bar>
+    <ion-content>
+    <ion-list>
+      <ion-item class="red" id="coloritem" ng-click="red()">
+        Red
+      </ion-item>
+      <ion-item class="pink" id="coloritem" ng-click="pink()">
+        Pink
+      </ion-item>
+      <ion-item class="orange" id="coloritem" ng-click="orange()">
+        Orange
+      </ion-item>
+      <ion-item class="yellow" id="coloritem" ng-click="yellow()">
+        Yellow
+      </ion-item>
+      <ion-item class="purple" id="coloritem" ng-click="purple()">
+        Purple
+      </ion-item>
+      <ion-item class="green" id="coloritem" ng-click="green()">
+        Green
+      </ion-item>
+      <ion-item class="lgreen" id="coloritem" ng-click="lgreen()">
+        Light Green
+      </ion-item>
+      <ion-item class="blue" id="coloritem" ng-click="blue()">
+        Blue
+      </ion-item>
+      <ion-item class="lblue" id="coloritem" ng-click="lblue()">
+        Light Blue
+      </ion-item>
+    </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+  </body>
+</html>

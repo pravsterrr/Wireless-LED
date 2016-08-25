@@ -1,0 +1,10 @@
+{
+  "name": "nodeledtest",
+  "version": "0.0.1",
+  "dependenices": {
+    "johnny-five": "latest"
+  },
+  "dependencies": {
+    "firebase": "^3.2.0"
+  }
+}
